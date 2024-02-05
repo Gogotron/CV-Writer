@@ -1,0 +1,78 @@
+[header]
+name = 'Your Name'
+email = 'your.email@example.com'
+phone-number = '(+49) 01 23 45 67 89'
+address = '123 Main St.\\Mülheim, France 68100'
+
+
+[[sections.Education]]
+title = 'Exchange Year - Masters in Material Sciences'
+time-frame = '2025-2026'
+description = '''
+Polytechnique de Paris, France'''
+
+[[sections.Education]]
+title = "Masters in Material Sciences"
+time-frame = '2023-2026'
+description = '''
+Technische Universität Berlin, Germany
+Internationl program.'''
+
+[[sections.Education]]
+title = 'Bachelors of Chemistry'
+time-frame = '2020-2023'
+description = '''
+University of Freiburg, Germany \\
+Graduated with honors.'''
+
+
+[[sections.Experience]]
+title = 'Lidl - Mulhouse'
+time-frame = 'June-September 2021'
+description = 'Cashier.'
+
+[[sections.Experience]]
+title = '''Internship at  Natural Reserve'''
+time-frame = 'June-July 2022'
+description = '''
+Water quality testing and control at Reinheimer Teich
+\url{https://www.reinheim.de/reinheimerteich.html}.'''
+
+
+[[sections.'Other Activities']]
+title = 'Student-Body Governement Secretary'
+time-frame = '2022-2023'
+description = '''
+Administrative tasks and organization of the activities of the student governement of Freiburg University.'''
+
+[[sections.'Other Activities']]
+title = 'Restos du Cœur'
+time-frame = 'December 2022'
+description = '''
+Christmas time soup-kitchen volunteer work.'''
+
+[[sections.'Other Activities']]
+title = 'ChemieKlub-Stud'
+time-frame = '2021-2023'
+description = '''
+Member of the Freiburg Chemistry Student Association.'''
+
+
+[[sections.Languages]]
+title = 'English'
+time-frame = 'Since birth'
+description = '''
+Native language.'''
+
+[[sections.Languages]]
+title = 'French'
+time-frame = 'Since 2011'
+description = '''
+4 year living in France, including a year in a French university. \\
+DELF B2: 113/120'''
+
+[[sections.Languages]]
+title = 'German'
+time-frame = 'Since 2014'
+description = '''
+Middle school, high school, and higher education in Germany.'''
