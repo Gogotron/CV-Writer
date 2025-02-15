@@ -2,7 +2,7 @@ import toml
 
 
 def write_cv(data):
-    return r'''\documentclass{article}
+    return r'''\documentclass[a4paper]{article}
 
 \usepackage{curriculum}
 
