@@ -35,7 +35,7 @@ description = 'Cashier.'
 title = '''Internship at  Natural Reserve'''
 time-frame = 'June-July 2022'
 description = '''
-Water quality testing and control at Reinheimer Teich
+Water quality testing and control at Reinheimer Teich \\
 \url{https://www.reinheim.de/reinheimerteich.html}.'''
 
 
