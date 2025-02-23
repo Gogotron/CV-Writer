@@ -14,11 +14,11 @@ def write_cv(data):
 
 
 def write_header(content):
-    return r'''
-\name{'''+content['name']+r'''}
-\email{'''+content['email']+r'''}
-\phonenumber{'''+content['phone-number']+r'''}
-\address{'''+content['address']+'}'
+    return '''
+'''+(r'\name{'+content['name']+'}' if 'name' in content else '')+'''
+'''+(r'\email{'+content['email']+'}' if 'email' in content else '')+'''
+'''+(r'\phonenumber{'+content['phone-number']+'}' if 'phone-number' in content else '')+'''
+'''+(r'\address{'+content['address']+'}' if 'address' in content else '')
 
 
 def write_sections(content):
