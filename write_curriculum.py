@@ -8,9 +8,7 @@ def write_cv(data):
 {write_header(data['header'])}
 
 \begin{{document}}
-\maketitle
-{write_sections(data['sections'])}
-
+{indent(write_content(data))}
 \end{{document}}'''
 
 
@@ -26,6 +24,10 @@ def write_header(content):
     ])
 
 
+def write_content(data):
+    return f'\\maketitle\n{write_sections(data['sections'])}'
+
+
 def write_sections(content):
     return '\n'.join(
         write_section(title, section)
@@ -34,15 +36,22 @@ def write_sections(content):
 
 
 def write_section(title, content):
-    return f'\n\\section{{{title}}}'+''.join(map(write_item, content))
+    return f'\n\\section{{{title}}}'+'\n'.join(map(indent, map(write_item, content)))
 
 
 def write_item(content):
     return fr'''
 \begin{{resumeitem}}
-{{{content['title']}}}{{{content['time-frame']}}}
-{content['description']}
+{indent(write_item_inner(content))}
 \end{{resumeitem}}'''
+
+
+def write_item_inner(content):
+    return f'{{{content['title']}}}{{{content['time-frame']}}}\n{content['description']}'
+
+
+def indent(text):
+    return '\n'.join(f'  {line}' if line else line for line in text.split('\n'))
 
 
 def main():
