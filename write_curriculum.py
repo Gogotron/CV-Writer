@@ -5,6 +5,7 @@ def write_cv(data):
     return fr'''\documentclass[a4paper]{{article}}
 
 \usepackage{{curriculum}}
+\usepackage{{multicol}}
 {write_header(data['header'])}
 
 \begin{{document}}
@@ -36,7 +37,32 @@ def write_sections(content):
 
 
 def write_section(title, content):
-    return f'\n\\section{{{title}}}'+'\n'.join(map(indent, map(write_item, content)))
+    column_count = max(
+        (
+            item['column']
+            for item in content
+            if 'column' in item
+        ),
+        default=0
+    ) + 1
+
+    if column_count == 1:
+        section_content = '\n'.join(map(write_item, content))
+    else:
+        columns_content = '\n\n\\columnbreak\n'.join(
+            '\n'.join(
+                write_item(item)
+                for item in content
+                if item.get('column', 0) == column_idx
+            )
+            for column_idx in range(column_count)
+        )
+        section_content = fr'''
+\vspace{{-1em}}
+\begin{{multicols}}{{2}}{indent(columns_content)}
+\end{{multicols}}'''
+
+    return f'\n\\section{{{title}}}' + indent(section_content)
 
 
 def write_item(content):
