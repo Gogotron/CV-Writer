@@ -1,36 +1,55 @@
 \usepackage{titlesec}
 \usepackage{hyperref}
-\usepackage[margin=1in]{geometry}
 \usepackage{changepage}
+\usepackage[x11names]{xcolor}
 \pagenumbering{gobble}
 \setlength{\textheight}{9.5in}
+\usepackage{geometry}
+ \geometry{
+   margin=0.5in,
+   bottom=0in,
+   top=0.6in
+ }
 
 
-\titleformat{\section}{\bfseries\uppercase}{}{0em}{}
-\titlespacing*{\section}{0in}{2.5em}{0.3em}[5em]
+\titleformat{\section}{\color{Blue4}\bfseries\large\uppercase}{}{0em}{\mbox}[]
+\titlespacing*{\section}{0in}{1.5em}{0.3em}[5em]
+\titleformat{\subsection}{\color{Blue4}\bfseries\uppercase}{}{0em}{\mbox}[]
+\titlespacing*{\subsection}{0in}{0em}{0em}[0em]
 
 
 \newenvironment{resumeitem}[2]
-{\begin{adjustwidth}{2.5em}{}\textbf{#1}\hfill\emph{#2}\\}
-{\end{adjustwidth}\vspace{0.2em}}
+{\begin{adjustwidth}{2em}{}{\large\textbf{#1}}\hfill\emph{#2}\\}
+{\end{adjustwidth}\vspace{0.1em}}
 
 
 \newcommand{\name}[1]{\newcommand{\thename}{#1}}
 \newcommand{\email}[1]{\newcommand{\theemail}{#1}}
 \newcommand{\phonenumber}[1]{\newcommand{\thephonenumber}{#1}}
 \newcommand{\address}[1]{\newcommand{\theaddress}{#1}}
+\newcommand{\worktitle}[1]{\newcommand{\theworktitle}{#1}}
+\newcommand{\nationality}[1]{\newcommand{\thenationality}{#1}}
+\newcommand{\website}[1]{\newcommand{\thewebsite}{#1}}
 
 \renewcommand\maketitle{
 \ifdefined\thename
 \begin{center}
-\Large\textbf{\thename}\\
+\huge\textbf{\color{Blue4}\thename}
+\end{center}
+\else\fi
+\ifdefined\theworktitle
+\begin{center}
+\large\textbf{\theworktitle}
 \end{center}
 \else\fi
 \begin{center}
-\begin{tabular}{l}
+\begin{tabular}{c}
+\ifdefined\thenationality\thenationality\vspace{0.2em}\\\else\fi
 \ifdefined\theemail\href{mailto:\theemail}{\theemail}\\\else\fi
 \ifdefined\thephonenumber\thephonenumber\\\else\fi
-\ifdefined\theaddress\theaddress\else\fi
+\ifdefined\theaddress\theaddress\\\else\fi
+\\[-0.7em]
+\ifdefined\thewebsite\href{https://\thewebsite}{\thewebsite}\\\else\fi
 \end{tabular}
 \end{center}
 }

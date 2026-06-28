@@ -3,7 +3,9 @@ name = 'Your Name'
 email = 'your.email@example.com'
 phone-number = '(+49) 01 23 45 67 89'
 address = '123 Main St.\\Mülheim, France 68100'
-
+worktitle = 'Materials Engineer'
+nationality = 'German'
+website = 'github.com/Gogotron'
 
 [[sections.Education]]
 title = 'Exchange Year - Masters in Material Sciences'

@@ -21,6 +21,9 @@ def write_header(content):
             ('email', 'email'),
             ('phonenumber', 'phonenumber'),
             ('address', 'address'),
+            ('nationality', 'nationality'),
+            ('worktitle', 'worktitle'),
+            ('website', 'website'),
         ]
     ])
 
