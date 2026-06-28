@@ -2,40 +2,47 @@ import toml
 
 
 def write_cv(data):
-    return r'''\documentclass[a4paper]{article}
+    return fr'''\documentclass[a4paper]{{article}}
 
-\usepackage{curriculum}
+\usepackage{{curriculum}}
+{write_header(data['header'])}
 
-\begin{document}'''+write_header(data['header'])+r'''
+\begin{{document}}
 \maketitle
+{write_sections(data['sections'])}
 
-'''+write_sections(data['sections'])+r'''
-\end{document}'''
+\end{{document}}'''
 
 
 def write_header(content):
-    return '''
-'''+(r'\name{'+content['name']+'}' if 'name' in content else '')+'''
-'''+(r'\email{'+content['email']+'}' if 'email' in content else '')+'''
-'''+(r'\phonenumber{'+content['phone-number']+'}' if 'phone-number' in content else '')+'''
-'''+(r'\address{'+content['address']+'}' if 'address' in content else '')
+    return ''.join([
+        (f'\n\\{command}{{{content[field]}}}' if field in content else '')
+        for command, field in [
+            ('name', 'name'),
+            ('email', 'email'),
+            ('phonenumber', 'phonenumber'),
+            ('address', 'address'),
+        ]
+    ])
 
 
 def write_sections(content):
-    return '\n'.join(write_section(title, section) for title, section in content.items())
+    return '\n'.join(
+        write_section(title, section)
+        for title, section in content.items()
+    )
 
 
 def write_section(title, content):
-    return r'''
-\section{'''+title+'}'+''.join(map(write_item, content))
+    return f'\n\\section{{{title}}}'+''.join(map(write_item, content))
 
 
 def write_item(content):
-    return r'''
-\begin{resumeitem}
-{'''+content['title']+r'}{'+content['time-frame']+r'''}
-'''+content['description']+r'''
-\end{resumeitem}'''
+    return fr'''
+\begin{{resumeitem}}
+{{{content['title']}}}{{{content['time-frame']}}}
+{content['description']}
+\end{{resumeitem}}'''
 
 
 def main():
