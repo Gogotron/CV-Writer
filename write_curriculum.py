@@ -19,7 +19,7 @@ def write_header(content):
         for command, field in [
             ('name', 'name'),
             ('email', 'email'),
-            ('phonenumber', 'phonenumber'),
+            ('phonenumber', 'phone-number'),
             ('address', 'address'),
             ('nationality', 'nationality'),
             ('worktitle', 'worktitle'),
