@@ -79,3 +79,12 @@ title = 'German'
 time-frame = 'Since 2014'
 description = '''
 Middle school, high school, and higher education in Germany.'''
+
+[[sections.Languages]]
+column = 1
+raw = '''
+\subsection{Other Languages}
+  \begin{adjustwidth}{2em}{}
+    Esperanto, Toki Pona \\
+    Open to relocating and learning a language if necessary.
+  \end{adjustwidth}'''

@@ -69,6 +69,9 @@ def write_section(title, content):
 
 
 def write_item(content):
+    if 'raw' in content:
+        return f'\n{content['raw']}'
+
     return fr'''
 \begin{{resumeitem}}
 {indent(write_item_inner(content))}
