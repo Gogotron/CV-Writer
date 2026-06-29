@@ -2,7 +2,7 @@ MAIN=cv
 
 all: $(MAIN).pdf
 
-$(MAIN).pdf: $(MAIN).tex
+$(MAIN).pdf: $(MAIN).tex curriculum.sty
 	pdflatex -interaction=batchmode $^
 
 $(MAIN).tex: data.toml
